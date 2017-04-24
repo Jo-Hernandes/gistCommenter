@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:lib="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:alpha="0.8"
+        />
+
+    <com.github.glomadrian.roadrunner.IndeterminateRoadRunner
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="65dp"
+        lib:movement_direction="counter_clockwise"
+        lib:path_color="@color/colorAccent"
+        lib:stroke_width="5sp"
+        lib:path_data="@string/github"
+        lib:path_original_width="@integer/github_original_width"
+        lib:path_original_height="@integer/github_original_height"
+        lib:path_animation_type="material"
+        />
+
+</FrameLayout>
