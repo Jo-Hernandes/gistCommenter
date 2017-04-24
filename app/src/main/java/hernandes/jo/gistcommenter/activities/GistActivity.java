@@ -34,7 +34,7 @@ import hernandes.jo.gistcommenter.models.AccessToken;
 import hernandes.jo.gistcommenter.models.Comment;
 import hernandes.jo.gistcommenter.models.Gist;
 import hernandes.jo.gistcommenter.models.Owner;
-import hernandes.jo.gistcommenter.restService.DefaultConectionError;
+import hernandes.jo.gistcommenter.restService.DefaultConnectionError;
 import hernandes.jo.gistcommenter.restService.GistAPI;
 import hernandes.jo.gistcommenter.restService.ServiceCall;
 import hernandes.jo.gistcommenter.utils.LoadingAnimation;
@@ -146,7 +146,7 @@ public class GistActivity extends AppCompatActivity implements CommentFragment.O
                     public void call(List<Comment> comments) {
                         adapter.setCommentaries(new ArrayList<>(comments));
                     }
-                }, new DefaultConectionError(this));
+                }, new DefaultConnectionError(this));
     }
 
     @Override
@@ -181,7 +181,7 @@ public class GistActivity extends AppCompatActivity implements CommentFragment.O
                             Toast.makeText(GistActivity.this, R.string.comment_success, Toast.LENGTH_SHORT).show();
                             updateList(adapter);
                         }
-                    }, new DefaultConectionError(this));
+                    }, new DefaultConnectionError(this));
 
         } else {
             new AlertDialog.Builder(this)

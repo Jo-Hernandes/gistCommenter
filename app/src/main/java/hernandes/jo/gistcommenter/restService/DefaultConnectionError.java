@@ -12,11 +12,11 @@ import retrofit2.adapter.rxjava.HttpException;
 import rx.functions.Action1;
 
 
-public class DefaultConectionError implements Action1<Throwable> {
+public class DefaultConnectionError implements Action1<Throwable> {
 
   private Context context;
 
-  public DefaultConectionError(Context context){
+  public DefaultConnectionError(Context context){
     this.context = context;
   }
 

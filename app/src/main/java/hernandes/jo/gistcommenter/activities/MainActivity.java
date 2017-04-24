@@ -16,7 +16,7 @@ import hernandes.jo.gistcommenter.utils.TokenPersistence;
 import hernandes.jo.gistcommenter.models.AccessToken;
 import hernandes.jo.gistcommenter.oauthServices.LoginService;
 import hernandes.jo.gistcommenter.oauthServices.LoginServiceCall;
-import hernandes.jo.gistcommenter.restService.DefaultConectionError;
+import hernandes.jo.gistcommenter.restService.DefaultConnectionError;
 import hernandes.jo.gistcommenter.utils.LoadingAnimation;
 import okhttp3.ResponseBody;
 import rx.android.schedulers.AndroidSchedulers;
@@ -83,13 +83,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        // the intent filter defined in AndroidManifest will handle the return from ACTION_VIEW intent
         Uri uri = getIntent().getData();
         if (uri != null && uri.toString().startsWith(redirectUri)) {
-            // use the parameter your API exposes for the code (mostly it's "code")
             String code = uri.getQueryParameter("code");
             if (code != null) {
-                // get access token
 
                 final LoadingAnimation loadingAnimation = new LoadingAnimation(((ViewGroup) getWindow().getDecorView()));
                 loadingAnimation.start();
@@ -119,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                                     showErrorMessage();
                                 }
                             }
-                        }, new DefaultConectionError(this));
+                        }, new DefaultConnectionError(this));
 
             } else if (uri.getQueryParameter("error") != null) {
                 showErrorMessage();

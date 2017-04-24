@@ -124,5 +124,6 @@
     <string name="login_label">Authenticate User</string>
     <string name="scanGist_label">Scan\nGist</string>
     <string name="qrcode_help">Position the QR Code in the center of the frame.</string>
+    <string name="no_camera_permission">Cannot use camera. Permission denied by user.</string>
 
 </resources>

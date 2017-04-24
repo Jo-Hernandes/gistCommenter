@@ -25,7 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import hernandes.jo.gistcommenter.R;
 import hernandes.jo.gistcommenter.models.Gist;
-import hernandes.jo.gistcommenter.restService.DefaultConectionError;
+import hernandes.jo.gistcommenter.restService.DefaultConnectionError;
 import hernandes.jo.gistcommenter.restService.GistAPI;
 import hernandes.jo.gistcommenter.restService.ServiceCall;
 import rx.android.schedulers.AndroidSchedulers;
@@ -137,14 +137,13 @@ public class QrCodeActivity extends AppCompatActivity {
                                            @NonNull String permissions[], @NonNull  int[] grantResults) {
         switch (requestCode) {
             case PERMISSION_CAMERA: {
-                // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     finish();
                     startActivity(getIntent());
                 } else {
                     finish();
-                    Toast.makeText(this, "Não é possível utilizar o leitor de QR Code. Uso da camêra não permitido pelo usuário", Toast.LENGTH_LONG)
+                    Toast.makeText(this, R.string.no_camera_permission, Toast.LENGTH_LONG)
                             .show();
                 }
             }
@@ -181,7 +180,7 @@ public class QrCodeActivity extends AppCompatActivity {
                         i.putExtra(GistActivity.EXTRA_GIST, gist);
                         startActivity(i);
                     }
-                }, new DefaultConectionError(this));
+                }, new DefaultConnectionError(this));
     }
 
 }
